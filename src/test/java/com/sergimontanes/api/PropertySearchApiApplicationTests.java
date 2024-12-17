@@ -1,4 +1,4 @@
-package com.sergimontanes.property_search_api;
+package com.sergimontanes.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

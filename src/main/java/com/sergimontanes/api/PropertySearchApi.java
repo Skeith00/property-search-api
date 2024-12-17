@@ -1,13 +1,13 @@
-package com.sergimontanes.property_search_api;
+package com.sergimontanes.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PropertySearchApiApplication {
+public class PropertySearchApi {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PropertySearchApiApplication.class, args);
+		SpringApplication.run(PropertySearchApi.class, args);
 	}
 
 }
