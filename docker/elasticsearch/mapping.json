@@ -1,0 +1,19 @@
+{
+  "mappings": {
+    "properties": {
+      "id": { "type": "keyword" },
+      "title": { "type": "text" },
+      "description": { "type": "text" },
+      "price": { "type": "double" },
+      "location": {
+        "type": "object",
+        "properties": {
+          "latitude": { "type": "double" },
+          "longitude": { "type": "double" }
+        }
+      },
+      "createdAt": { "type": "date" },
+      "tags": { "type": "keyword" }
+    }
+  }
+}

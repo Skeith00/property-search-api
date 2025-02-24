@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: property-search-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/property_db
+    username: admin
+    password: admin
+    driver-class-name: "org.postgresql.Driver"
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: always # Loads schema.sql and data.sql at startup
+
+elasticsearch:
+  server-url: https://localhost:9200
+  api-key: VnVhQ2ZHY0JDZGJrU...
