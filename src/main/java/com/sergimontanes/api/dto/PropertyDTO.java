@@ -3,6 +3,7 @@ package com.sergimontanes.api.dto;
 import com.sergimontanes.api.model.PropertyType;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -11,7 +12,7 @@ public class PropertyDTO {
     private String id;
     private String title;
     private String description;
-    private double price;
+    private BigDecimal price;
     private String address;
     private PropertyType propertyType;
     private int size;

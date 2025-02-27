@@ -3,8 +3,8 @@ spring:
     name: property-search-api
   datasource:
     url: jdbc:postgresql://localhost:5432/property_db
-    username: admin
-    password: admin
+    username: property_admin
+    password: property_admin
     driver-class-name: "org.postgresql.Driver"
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect

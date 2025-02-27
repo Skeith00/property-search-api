@@ -10,6 +10,7 @@ import com.sergimontanes.api.transformer.PropertyTransformer;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +27,8 @@ public class PropertyService {
 
     public void storeProperty(PropertyDTO propertyDTO) {
         Property property = PropertyTransformer.transformProperty(propertyDTO);
+        property.setUpdatedAt(LocalDateTime.now());
+        property.setCreatedAt(LocalDateTime.now());
         propertyRepository.save(property);
     }
 

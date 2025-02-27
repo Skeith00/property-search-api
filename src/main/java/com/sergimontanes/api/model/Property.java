@@ -3,6 +3,7 @@ package com.sergimontanes.api.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,11 +26,11 @@ public class Property {
     private PropertyType propertyType;
     @Column
     private int size;
-    @Column(nullable = false)
-    private double price;
-    @Column(name = "created_at",nullable = false)
+    @Column(name="price", precision=9, scale=2, nullable = false)
+    private BigDecimal price;
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
     // @Column
     // @OneToMany(mappedBy = "property_amenities", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

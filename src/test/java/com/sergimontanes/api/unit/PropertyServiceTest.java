@@ -1,4 +1,4 @@
-package com.sergimontanes.api;
+package com.sergimontanes.api.unit;
 
 import com.sergimontanes.api.dto.PropertyDTO;
 import com.sergimontanes.api.dto.PropertySearchDTO;
@@ -25,7 +25,6 @@ class PropertyServiceTest {
     void storeProperty_ShouldSaveProperty() {
         // Arrange
         PropertyDTO propertyDTO = new PropertyDTO();
-        Property property = new Property();
 
         // Act
         PropertyRepository propertyRepository = mock(PropertyRepository.class);
@@ -33,7 +32,7 @@ class PropertyServiceTest {
         propertyService.storeProperty(propertyDTO);
 
         // Assert
-        verify(propertyRepository, times(1)).save(property);
+        verify(propertyRepository, times(1)).save(any());
     }
 
     @Test
