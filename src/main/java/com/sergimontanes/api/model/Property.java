@@ -21,22 +21,21 @@ public class Property {
     private String description;
     @Column(nullable = false)
     private String address;
-    @Enumerated(EnumType.STRING)
     @Column(name = "property_type", nullable = false)
     private PropertyType propertyType;
-    @Column
-    private int size;
-    @Column(name="price", precision=9, scale=2, nullable = false)
-    private BigDecimal price;
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+    @OneToOne(mappedBy = "property", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    private PropertyDetails details;
     // @Column
     // @OneToMany(mappedBy = "property_amenities", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     // private List<String> propertyFeatures;
-    @OneToMany(cascade = CascadeType.ALL) // No 'mappedBy' for unidirectional
-    @JoinColumn(name = "property_id") // Foreign key stored in 'rooms' table
-    private List<Room> rooms;
 
+    // Mapping Property Amenities as a List<String>
+    @ElementCollection
+    @CollectionTable(name = "property_amenities", joinColumns = @JoinColumn(name = "property_id"))
+    @Column(name = "feature")
+    private List<String> amenities;
 }

@@ -28,8 +28,8 @@ public class PropertyDTO {
 
     @Data
     public static class PropertyRooms {
-        private int bathrooms;
         private int bedrooms;
+        private int bathrooms;
         private int carparks;
     }
 

@@ -15,18 +15,18 @@ CREATE TABLE IF NOT EXISTS property (
     description         TEXT           NOT NULL,
     address             VARCHAR(255)   NOT NULL,
     property_type       VARCHAR(50)    NOT NULL,
-    size                INT,
-    price               DECIMAL(10, 2) NOT NULL,
     created_at          TIMESTAMP      NOT NULL,
     updated_at          TIMESTAMP NULL
 );
 
 CREATE TABLE IF NOT EXISTS property_details (
-    id          BIGSERIAL PRIMARY KEY,
-    property_id BIGINT UNIQUE NOT NULL, -- Foreign key to Property table
-    bedrooms    INT,
-    bathrooms   INT,
-    carparks    INT,
+    id              BIGSERIAL PRIMARY KEY,
+    property_id     BIGINT UNIQUE NOT NULL, -- Foreign key to Property table
+    bedrooms        INT,
+    bathrooms       INT,
+    carparks        INT,
+    property_size   INT,
+    price           DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (property_id) REFERENCES property(id) ON DELETE CASCADE
 );
 
@@ -50,8 +50,7 @@ CREATE TABLE IF NOT EXISTS property_images (
     id          BIGSERIAL PRIMARY KEY,
     property_id BIGINT NOT NULL,
     image_url   VARCHAR(500) NOT NULL,
-    FOREIGN KEY (property_id) REFERENCES property(id) ON DELETE CASCADE,
-    UNIQUE(user_id, property_id) -- Prevent duplicate favorites
+    FOREIGN KEY (property_id) REFERENCES property(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS user_favorites (

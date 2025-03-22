@@ -2,7 +2,7 @@ package com.sergimontanes.api.repository;
 
 import com.sergimontanes.api.dto.PropertySearchDTO;
 import com.sergimontanes.api.model.Property;
-import com.sergimontanes.api.model.Room;
+import com.sergimontanes.api.model.PropertyDetails;
 import jakarta.persistence.criteria.*;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -29,7 +29,7 @@ public class PropertySpecification {
 
                 // Join with Room table and apply filters
                 if (filter.getRoomFilters() != null && !filter.getRoomFilters().isEmpty()) {
-                    Join<Property, Room> roomJoin = root.join("rooms", JoinType.INNER); // Inner join with Room
+                    Join<Property, PropertyDetails> roomJoin = root.join("rooms", JoinType.INNER); // Inner join with Room
 
                     for (Map.Entry<String, Integer> entry : filter.getRoomFilters().entrySet()) {
                         String roomName = entry.getKey();
